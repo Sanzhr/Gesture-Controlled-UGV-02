@@ -23,7 +23,15 @@ Webcam (default system camera used)
 PC running the Python script
 Serial connection (USB) to UGV (e.g., via ESP32/Arduino/etc.)
 
-How to Run
+Serial Command Format:
+Commands are sent as JSON strings:
+{"T":1,"L":0.3,"R":-0.3} Where:
+T = Trigger flag
+L = Left motor speed
+R = Right motor speed
+Positive values = forward, negative = backward
+
+How to Run:
 Connect your UGV robot to your PC via USB (default: COM6)
 Clone this repository and open the Python file.
 Run the script:
@@ -33,3 +41,4 @@ MediaPipe for robust hand tracking
 OpenCV for real-time camera interface
 UGV-02 robot hardware platform
 
+...

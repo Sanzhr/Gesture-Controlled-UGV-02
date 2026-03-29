@@ -40,4 +40,6 @@ The goal of this project was to explore human-robot interaction and gesture-base
 
 ## Notes
 The main implemented part in this repository is the Python-based gesture recognition and control logic.  
-Robot-side launch and execution were performed through ROS2 commands in Linux.
+
+## Video demonstration 
+https://github.com/user-attachments/assets/40b3c5e1-a53e-4245-87dd-fa5b8c8275ad

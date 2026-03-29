@@ -1,44 +1,43 @@
-# Gesture-Controlled-UGV-02
-Implementation of gesture controll into UGV-02
+# Gesture-Controlled UGV-02 (ROS2)
 
-This project implements a gesture-controlled system for a UGV-02 robot, using MediaPipe for hand tracking and gesture recognition, and serial communication to control robot movement in real time. Hand proximity controls forward/backward motion, and index finger tilt controls left/right turning.
+## Description
+This project presents a gesture-controlled mobile robot system based on UGV-02 and ROS2.
 
-Features:
-Real-time hand tracking using webcam (via MediaPipe)
-Gesture detection: turn left or right using index finger direction
-Depth-based control: move forward or backward depending on hand distance
-Sends commands over serial to control UGV robot wheels
-Visual feedback via OpenCV
+The robot was operated in a ROS2 environment, while a Python script running on a laptop used the webcam to track hand position in real time. Based on hand distance and direction relative to the camera, movement commands were generated and used to control the robot.
 
-Gesture	Action:
-Hand far (>60)	Move Forward
-Hand close (<40)	Move Backward
-Index finger right	Turn Right
-Index finger left	Turn Left
-No hand / neutral	Stop
+The project combines computer vision, gesture recognition, and mobile robot control.
 
-Hardware Used:
-UGV-02 robot platform
-Webcam (default system camera used)
-PC running the Python script
-Serial connection (USB) to UGV (e.g., via ESP32/Arduino/etc.)
+## Features
+- Real-time hand tracking using laptop webcam
+- Gesture-based control of robot motion
+- Forward/backward movement based on hand distance
+- Left/right turning based on hand position or finger direction
+- Robot operation in ROS2 environment
+- Real-time visual feedback using OpenCV
 
-Serial Command Format:
-Commands are sent as JSON strings:
-{"T":1,"L":0.3,"R":-0.3} Where:
-T = Trigger flag
-L = Left motor speed
-R = Right motor speed
-Positive values = forward, negative = backward
+## Technologies Used
+- ROS2
+- Python
+- MediaPipe
+- OpenCV
 
-How to Run:
-Connect your UGV robot to your PC via USB (default: COM6)
-Clone this repository and open the Python file.
-Run the script:
+## Hardware
+- UGV-02 mobile robot
+- Laptop webcam
+- Linux-based control environment
+- Wired connection to robot
 
-Acknowledgements:
-MediaPipe for robust hand tracking
-OpenCV for real-time camera interface
-UGV-02 robot hardware platform
+## Control Logic
+The Python script detects the hand through the webcam and estimates its position relative to the camera:
 
-...
+- hand far from camera -> move forward
+- hand close to camera -> move backward
+- hand shifted left/right -> turn left or right
+- no hand detected -> stop
+
+## Project Goal
+The goal of this project was to explore human-robot interaction and gesture-based control of a mobile robot using computer vision in a ROS2 environment.
+
+## Notes
+The main implemented part in this repository is the Python-based gesture recognition and control logic.  
+Robot-side launch and execution were performed through ROS2 commands in Linux.
